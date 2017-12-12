@@ -31,12 +31,20 @@
             <input type="text" name="searchTerm" id="searchTerm" />
         </p>
 
-        <input type="submit" value="Search" />
+        <input type="submit" value="search" />
     </form>
 
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <h3 th:text="${results.size() + ' Result(s)'}"></h3>
+    <table class = "job-listing" th:each="result : ${results}">
+        <tr th:each="job : ${result}">
+            <td th:text="${job.key}"> </td>
+            <td th:text="${job.value}"> </td>
+        </tr>
+
+    </table>
 
 </div>
 
